@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import AdminLayout from './components/AdminLayout';
+import UsersPage from './pages/UsersPage/UsersPage';
+import AddUser from './pages/UsersPage/AddUser';
+import Login from './pages/Login';
+import CategoryList from './pages/CategoryPage/CategoryList';
+import AddCategory from './pages/CategoryPage/AddCategory';
+import SubCategoryList from './pages/SubCategoryPage/SubCategoryList';
+import AddSubCategory from './pages/SubCategoryPage/AddSubCategory';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+       
+        <Route path="/" element={<Login />} />
+
+    
+        <Route path="/admin" element={<AdminLayout />}>
+          
+         
+          <Route path="users/list" element={<UsersPage />} />
+          <Route path="users/add" element={<AddUser />} />
+          <Route path="/admin/users/edit/:id" element={<AddUser />} />
+    
+          <Route index element={<Navigate to="users/list" />} />
+          <Route path="/admin/category/list" element={<CategoryList />} />
+        <Route path="/admin/category/add" element={<AddCategory />} />
+        <Route path="/admin/subcategory/list" element={<SubCategoryList />} />
+        <Route path="/admin/subcategory/add" element={<AddSubCategory />} />
+        
+ 
+        </Route>
+
+      
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+       <ToastContainer />
+    </Router>
   );
 }
 
