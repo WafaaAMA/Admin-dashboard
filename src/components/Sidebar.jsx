@@ -16,12 +16,12 @@ const Sidebar = () => {
     setOpenMenus(prev => ({ ...prev, [menu]: !prev[menu] }));
   };
 
-  // --- التنسيقات المطلوبة ---
+
   
-  // 1. العناصر الأساسية: عند الهوفر الخلفية بيج فاتح أوي والكلام يتحول لكحلي
+ 
   const itemClass = "flex items-center justify-between p-3.5 text-[#FEFAF6] hover:bg-[#FEFAF6] hover:text-[#102C57] transition-all duration-300 text-[14px] font-bold border-b border-[#FEFAF6]/5 cursor-pointer group";
   
-  // 2. العناصر الفرعية: نفس المنطق بس بلمسة أهدى شوية عشان الفرق يبان
+ 
   const subItemClass = ({ isActive }) => 
     `flex items-center pl-10 py-2.5 text-[13px] transition-all duration-300 ${
       isActive 
@@ -68,7 +68,6 @@ const Sidebar = () => {
           )}
         </div>
 
-        {/* بقية الأقسام الموحدة */}
         {[
           { name: 'Service Management', icon: <FaBriefcase size={16}/> },
           { name: 'Booking Management', icon: <FaCalendarAlt size={16}/> },

@@ -54,7 +54,7 @@ const UsersPage = () => {
     }
   };
 
-  // --- التعديل الجوهري هنا في منطق الفلتر ---
+ 
   const filteredUsers = users.filter(user => {
     const name = user.Full_Name || "";
     const phone = user.phone_number || "";
@@ -63,7 +63,7 @@ const UsersPage = () => {
     const matchesSearch = name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           phone.includes(searchTerm);
     
-    // ربط الاختيارات بالقيم الحقيقية في الداتابيز
+   
     const matchesStatus = statusFilter === "ALL" || 
                           (statusFilter === "approved" && userStatus === "approved") ||
                           (statusFilter === "rejected" && userStatus === "rejected");
@@ -93,7 +93,7 @@ const UsersPage = () => {
       <div className="bg-white rounded-2xl border border-[#EADBC8] overflow-hidden shadow-sm">
         <div className="p-5 bg-white flex justify-end items-center border-b border-[#EADBC8] gap-4">
           
-          {/* تم تعديل الـ Select ليعرض Active/Inactive */}
+         
           <select
             value={statusFilter}
             onChange={(e) => { setStatusFilter(e.target.value); setCurrentPage(1); }}
